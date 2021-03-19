@@ -1,0 +1,3 @@
+SELECT COUNT(museum_type) as museum_type_count, museum_type, city_administrative_location, state_administrative_location
+FROM museums_extracted
+GROUP BY museum_type, city_administrative_location, state_administrative_location
