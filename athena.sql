@@ -10,8 +10,8 @@ museums_total_by_type_per_state AS (SELECT SUM("Count") AS "Count", "Type", 'All
 FROM museums_count_by_type_per_city
 GROUP BY "Type", "State"),
 
-museums_type_count_by_state AS (SELECT COUNT("Type") AS "Count", 'ALL' AS "Type", 'All' AS "City", "State" 
-FROM museums_count_by_type_per_city
+museums_total_by_state AS (SELECT SUM("Count") AS "Count", 'ALL' AS "Type", 'All' AS "City", "State" 
+FROM museums_total_by_type_per_state
 GROUP BY "State")
 
 SELECT "Count", "Type", "City", "State" FROM museums_count_by_type_per_city
@@ -20,4 +20,4 @@ SELECT "Count", "Type", "City", "State" FROM museums_total_cities
 UNION
 SELECT "Count", "Type", "City", "State" FROM museums_total_by_type_per_state
 UNION
-SELECT "Count", "Type", "City", "State" FROM museums_count_by_state
+SELECT "Count", "Type", "City", "State" FROM museums_total_by_state
